@@ -21,7 +21,7 @@ CHINA = range(13, 17)
 
 
 # the last entry (image or set of images of the same work) that will be included in the quiz. default: 16
-IMAGE_RANGE = JAPAN
+IMAGE_RANGE = range(13)
 
 """
 all of Louis Kahn's works were in 1962-1982
@@ -260,6 +260,27 @@ for key in FIELD_KEYS:
     entries[key].bind("<Return>", lambda event, k=key: focus_next_field(event, k))
 
 submit_button.config(command=submit_answer)
+
+
+
+# Calculate the max width for each column (including the header names)
+file_w = max(len("File"), max(len(k) for k in answers.keys()))
+artist_w = max(len("Artist"), max(len(v.artist) for v in answers.values()))
+work_w = max(len("Work"), max(len(v.work) for v in answers.values()))
+place_w = max(len("Location"), max(len(v.place) for v in answers.values()))
+year_w = max(len("Year"), max(len(v.year_range) for v in answers.values()))
+
+# Construct and print the header
+header = f"{'File':<{file_w}} | {'Artist':<{artist_w}} | {'Work':<{work_w}} | {'Location':<{place_w}} | {'Year':<{year_w}}"
+print(header)
+print("-" * len(header))
+
+# Print each row of data
+for filename, obj in answers.items():
+    print(f"{obj.artist:<{artist_w}} | {obj.work:<{work_w}} | {obj.place:<{place_w}} | {obj.year_range:<{year_w}}")
+
+
+
 
 show_current_image()
 root.mainloop()
