@@ -1,3 +1,9 @@
+"""
+Check which of the Katsuhiro Yamaguchi (Jikken Kobo) thingies it is
+Work II was by Shiraga Kazuo in 1958
+Legislative Assembly was 1961-1964
+"""
+
 import os
 import random
 import re
@@ -21,7 +27,7 @@ CHINA = range(13, 17)
 
 
 # the last entry (image or set of images of the same work) that will be included in the quiz. default: 16
-IMAGE_RANGE = range(13)
+IMAGE_RANGE = FULL_RANGE
 
 """
 all of Louis Kahn's works were in 1962-1982
