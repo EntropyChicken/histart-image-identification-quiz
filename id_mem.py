@@ -6,6 +6,35 @@ Luo Gongliu 1951
 Work II 1958
 Hou Yimin made Liu Shaoqi and the Anyuan Coal Miners, 1961
 Sekine Nobuo made Phase—Mother Earth, 1968  
+'85 New Wave should include the China/Avant-Garde Exhibition -GSI 
+Idea of dancing party is that there's no restraint in the new art (artistic liberation celebration)
+Looking at History from My Space IS socialist realism in style
+Dialogue: a collaboration between two artists. disconnect in the line between the booths. She umpromptedly shoots the artwork
+Quac Insik: NOT mono-ha. Lee Ufan's mentor (generational gap but same ideas)
+
+midterm: discuss 2 aspects of visual qualities (can be composition twice. maybe composition, scale, tone, etc.)
+historical context: similar to quizzes, things of that time that are relevant. political
+not every artwork has an associated reading here so you just engage with IDEAS FROM READINGS
+    demonstrate understand monoha approaches (that's related to ideas from reading, so sufficient for points)
+    tell how labor movement is going to alleviate the masses from being exploited from masses (this is also from reading, so sufficient for points)
+    don't need to name actual readings to get points
+both how they're similar AND different (compare and contrast)
+basic writing mechanics and grammar (clear, sensible, readable is the priority)
+no cap (only cap is class time as time constraint), 4 pages
+give equal time to 3 questions (we'll need to wait for slides to progress)
+perhaps the sheet will include ID info but the pictures are only on the board
+rubric for synthesis question isn't posted yet but it'll be similar without visuals
+    "how is revolutionary art being engaged with in china"
+    historical context
+    concepts from reading
+Ming Tiampo
+    Many of the artworks we're seeing are in a larger hegemonic relationship with the western art world
+    Except for, like, mao art which directly opposes western art world
+challenging mud versus phase-mother earth
+    how do these artists perceive themselves relative to the material
+        shiraga thinks artist is with mud and drives life energy in mud
+        other guy thinks we should have a separate view trying to see new qualities of the mud that we haven't seen before
+
 """
 
 import os
@@ -34,7 +63,7 @@ KOREA_AND_JAPAN = range(22, 25)
 NEW = range(17, 25)
 
 # the last entry (image or set of images of the same work) that will be included in the quiz. default: 16
-IMAGE_RANGE = ALL
+IMAGE_RANGE = NEW
 
 """
 all of Louis Kahn's works were in 1962-1982
@@ -77,7 +106,7 @@ answers = {
 
     'ha22.png': Id('Quac Insik', 'Work 63', 'Korea', '1963'),
     'ha23.png': Id('Sekine Nobuo', 'Phase—Mother Earth', 'Japan', '1968', 'Mono-ha'),
-    'ha24.png': Id('Lee Ufan', 'Phenomena and Perception B [later retitled Relatum]', 'Korea and Japan', '1963', 'Mono-ha'),
+    'ha24.png': Id('Lee Ufan', 'Phenomena and Perception B [later retitled Relatum]', 'Korea and Japan', '1968', 'Mono-ha'),
 }
 
 # "images" is expected to live in the same folder as this script.
