@@ -2,6 +2,9 @@
 Check which of the Katsuhiro Yamaguchi (Jikken Kobo) thingies it is
 Work II was by Shiraga Kazuo in 1958
 Legislative Assembly was 1961-1964
+Luo Gongliu 1951
+Work II 1958
+Hou Yimin made Liu Shaoqi and the Anyuan Coal Miners, 1961
 """
 
 import os
@@ -11,23 +14,26 @@ import tkinter as tk
 from PIL import Image, ImageTk
 
 class Id:
-    def __init__(self, artist, work, location, year_range):
+    def __init__(self, artist, work, location, year_range, art_group=''):
         self.artist = artist  # or, architect
         self.work = work  # or, building
         self.place = location
         self.year_range = year_range
+        self.art_group = art_group  # e.g. '85 New Wave'; leave blank if none
 
 
-FULL_RANGE = range(17)
+ALL = range(15,25)
 INDIA_AND_BANGLADESH = range(5)
 JAPAN = range(5, 13)
 GUTAI = range(5, 9) # >=1955
 JIKKEN_KOBO = range(9, 13) # <=1955
-CHINA = range(13, 17)
-
+MAO = range(13, 17)
+POST_MAO = range(17, 22)
+KOREA_AND_JAPAN = range(22, 25)
+NEW = range(17, 25)
 
 # the last entry (image or set of images of the same work) that will be included in the quiz. default: 16
-IMAGE_RANGE = FULL_RANGE
+IMAGE_RANGE = ALL
 
 """
 all of Louis Kahn's works were in 1962-1982
@@ -43,24 +49,34 @@ answers = {
     'ha4.1.webp': Id('Louis Kahn', 'National Assembly', 'Dhaka, Bangladesh', '1962-1982'),  # exterior
     'ha4.2.webp': Id('Louis Kahn', 'National Assembly', 'Dhaka, Bangladesh', '1962-1982'),  # interior
 
-    'ha5.webp': Id('Shiraga Kazuo', 'Challenging Mud', 'Japan', '1955'),
-    'ha6.webp': Id('Shiraga Kazuo', 'Work II', 'Japan', '1958'),
-    'ha7.1.webp': Id('Murakami Saburō', 'Passing Through (Tsūka)', 'Japan', '1956'),
-    'ha7.2.webp': Id('Murakami Saburō', 'Passing Through (Tsūka)', 'Japan', '1956'),
-    'ha8.webp': Id('Tanaka Atsuko', 'Work (Bell)', 'Japan', '1955'),
+    'ha5.webp': Id('Shiraga Kazuo', 'Challenging Mud', 'Japan', '1955', 'Gutai'),
+    'ha6.webp': Id('Shiraga Kazuo', 'Work II', 'Japan', '1958', 'Gutai'),
+    'ha7.1.webp': Id('Murakami Saburō', 'Passing Through (Tsūka)', 'Japan', '1956', 'Gutai'),
+    'ha7.2.webp': Id('Murakami Saburō', 'Passing Through (Tsūka)', 'Japan', '1956', 'Gutai'),
+    'ha8.webp': Id('Tanaka Atsuko', 'Work (Bell)', 'Japan', '1955', 'Gutai'),
 
-    'ha9.webp': Id('Jikken Kōbō', 'performance of Pierrot Lunaire', 'Tokyo, Japan', '1955'),
-    'ha10.1.webp': Id('Jikken Kōbō', 'performance of Pierrot Lunaire', 'Tokyo, Japan', '1955'),
-    'ha10.2.webp': Id('Jikken Kōbō', 'performance of Pierrot Lunaire', 'Tokyo, Japan', '1955'),
-    'ha11.webp': Id('Katsuhiro Yamaguchi (Jikken Kōbō)', 'Vitorīnu: Yoru no shinkō [Vitrine: Deep into the Night]', 'Japan', '1954'),
-    'ha12.webp': Id('Katsuhiro Yamaguchi (Jikken Kōbō)', 'Vitrine No. 1', 'Japan', '1952'),
+    'ha9.webp': Id('Jikken Kōbō', 'performance of Pierrot Lunaire', 'Tokyo, Japan', '1955', 'Jikken Kōbō'),
+    'ha10.1.webp': Id('Jikken Kōbō', 'performance of Pierrot Lunaire', 'Tokyo, Japan', '1955', 'Jikken Kōbō'),
+    'ha10.2.webp': Id('Jikken Kōbō', 'performance of Pierrot Lunaire', 'Tokyo, Japan', '1955', 'Jikken Kōbō'),
+    'ha11.webp': Id('Katsuhiro Yamaguchi', 'Vitorīnu: Yoru no shinkō [Vitrine: Deep into the Night]', 'Japan', '1954', 'Jikken Kōbō'),
+    'ha12.webp': Id('Katsuhiro Yamaguchi', 'Vitrine No. 1', 'Japan', '1952', 'Jikken Kōbō'),
 
-    'ha13.webp': Id('Luo Gongliu', "Mao Zedong Reporting on the Rectification in Yan'an", 'China', '1951'),
-    'ha14.webp': Id('Dong Xiwen', 'The Founding of the Nation', 'China', '1952-1953'),
-    'ha15.webp': Id('Hou Yimin', 'Liu Shaoqi and the Anyuan Coal Miners', 'China', '1961'),
+    'ha13.webp': Id('Luo Gongliu', "Mao Zedong Reporting on the Rectification in Yan'an", 'China', '1951', 'Socialist Realism'),
+    'ha14.webp': Id('Dong Xiwen', 'The Founding of the Nation', 'China', '1952-1953', 'Socialist Realism'),
+    'ha15.webp': Id('Hou Yimin', 'Liu Shaoqi and the Anyuan Coal Miners', 'China', '1961', 'Socialist Realism'),
     'ha16.1.webp': Id('', 'Rent Collection Courtyard', 'China', '1965'),  # made by a collective of sculptors from the Sichuan Fine Arts Institute
     'ha16.2.webp': Id('', 'Rent Collection Courtyard', 'China', '1965'),
     'ha16.3.webp': Id('', 'Rent Collection Courtyard', 'China', '1965'),
+
+    'ha17.png': Id('Chen Yifei', 'Looking at History from My Space', 'China', '1979', 'Post-Mao Socialist Realism'),
+    'ha18.png': Id('Luo Zhongli', 'Father', 'China', '1980', 'Post-Mao Scar Painting'),
+    'ha19.png': Id('Li Xiaobin', 'Dancing party at the ancient Summer Palace', 'China', '1980', 'Post-Mao Stars Art Collective'),
+    'ha20.png': Id('Huang Yong Ping', 'Towing Away the National Gallery', 'China', '1988', 'Post-Mao \'85 New Wave'),
+    'ha21.png': Id('Xiao Lu', 'Dialogue', 'China', '1989', 'Post-Mao \'85 New Wave'),
+
+    'ha22.png': Id('Quac Insik', 'Work 63', 'Korea', '1963'),
+    'ha23.png': Id('Sekine Nobuo', 'Phase—Mother Earth', 'Japan', '1968', 'Mono-ha'),
+    'ha24.png': Id('Lee Ufan', 'Phenomena and Perception B [later retitled Relatum]', 'Korea and Japan', '1963', 'Mono-ha'),
 }
 
 # "images" is expected to live in the same folder as this script.
@@ -103,6 +119,7 @@ FIELD_DEFS = [
     ("work", "Work"),
     ("place", "Location"),
     ("year_range", "Year range"),
+    ("art_group", "Art group"),
 ]
 
 entries = {}
@@ -268,23 +285,21 @@ for key in FIELD_KEYS:
 submit_button.config(command=submit_answer)
 
 
-
-# Calculate the max width for each column (including the header names)
 file_w = max(len("File"), max(len(k) for k in answers.keys()))
 artist_w = max(len("Artist"), max(len(v.artist) for v in answers.values()))
 work_w = max(len("Work"), max(len(v.work) for v in answers.values()))
 place_w = max(len("Location"), max(len(v.place) for v in answers.values()))
 year_w = max(len("Year"), max(len(v.year_range) for v in answers.values()))
+group_w = max(len("Art group"), max(len(v.art_group) for v in answers.values()))
 
-# Construct and print the header
-header = f"{'File':<{file_w}} | {'Artist':<{artist_w}} | {'Work':<{work_w}} | {'Location':<{place_w}} | {'Year':<{year_w}}"
+header = (f"{'File':<{file_w}} | {'Artist':<{artist_w}} | {'Work':<{work_w}} | "
+          f"{'Location':<{place_w}} | {'Year':<{year_w}} | {'Art group':<{group_w}}")
 print(header)
 print("-" * len(header))
 
-# Print each row of data
 for filename, obj in answers.items():
-    print(f"{obj.artist:<{artist_w}} | {obj.work:<{work_w}} | {obj.place:<{place_w}} | {obj.year_range:<{year_w}}")
-
+    print(f"{filename:<{file_w}} | {obj.artist:<{artist_w}} | {obj.work:<{work_w}} | "
+          f"{obj.place:<{place_w}} | {obj.year_range:<{year_w}} | {obj.art_group:<{group_w}}")
 
 
 
