@@ -5,6 +5,7 @@ Legislative Assembly was 1961-1964
 Luo Gongliu 1951
 Work II 1958
 Hou Yimin made Liu Shaoqi and the Anyuan Coal Miners, 1961
+Sekine Nobuo made Phase—Mother Earth, 1968  
 """
 
 import os
@@ -22,7 +23,7 @@ class Id:
         self.art_group = art_group  # e.g. '85 New Wave'; leave blank if none
 
 
-ALL = range(15,25)
+ALL = range(25)
 INDIA_AND_BANGLADESH = range(5)
 JAPAN = range(5, 13)
 GUTAI = range(5, 9) # >=1955
