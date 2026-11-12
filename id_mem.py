@@ -21,7 +21,7 @@ JIKKEN_KOBO = range(9, 13) # <=1955
 MAO = range(13, 17)
 POST_MAO = range(17, 22)
 KOREA_AND_JAPAN = range(22, 25)
-NEW = range(25, 36)
+NEW = range(36, 46)
 
 # the last entry (image or set of images of the same work) that will be included in the quiz. default: 16
 IMAGE_RANGE = NEW
@@ -92,6 +92,17 @@ answers = {
     'ha33.png': Id('Lee Kiyeon', 'On the Verge of Life or Death', 'Korea', '1984', ''),
     'ha34.png': Id('Naeem Mohaiemen', 'Still from a Missing Can of Film', 'Bangladesh, Ireland, India', '2025', ''),
     'ha35.png': Id('Zahir Raihan', 'Stop Genocide', 'Bangladesh', '1971', ''),
+    
+    'ha36.png': Id('S. Sudjojono', 'Straight Path', 'Indonesia', '1941', ''),
+    'ha37.png': Id('S. Sudjojono', 'Friends of the Revolution', 'Indonesia', '1947', ''),
+    'ha38.png': Id('Ahmad Sadali', 'Abstraction of a Landscape', 'Indonesia', '1962', ''),
+    'ha39.png': Id('FX Harsono', 'Top Most', 'Indonesia', '1975, remade in 2006', ''),
+    'ha40.png': Id('FX Harsono', 'Victim--Destruction I', 'Indonesia', '1997', ''),
+    'ha41.png': Id('Tran Van Can', 'Little Sister Thuy', 'Vietnam', '1943', ''),
+    'ha42.png': Id('Mai Van Hien', 'Five-dong note', 'Vietnam', '1945', ''),
+    'ha43.png': Id('Pham Thanh Tam', 'On the Road to Khe Sanh', 'Vietnam', '1967', ''),
+    'ha44.png': Id('Le Minh', 'To protect the crops, to feed the troops', 'Vietnam', '1968', ''),
+    'ha45.png': Id('Mai Van Hien', 'Uncle Ho and the Courier', 'Vietnam', '1990-1991', ''),
 }
 
 # "images" is expected to live in the same folder as this script.
