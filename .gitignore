@@ -1,1 +1,4 @@
 images/*.webp
+
+__pycache__/
+*.py[cod]
