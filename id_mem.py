@@ -13,7 +13,7 @@ class Id:
         self.art_group = art_group  # e.g. '85 New Wave'; leave blank if none
 
 
-ALL = range(25)
+ALL = range(50)
 INDIA_AND_BANGLADESH = range(5)
 JAPAN = range(5, 13)
 GUTAI = range(5, 9) # >=1955
@@ -21,7 +21,7 @@ JIKKEN_KOBO = range(9, 13) # <=1955
 MAO = range(13, 17)
 POST_MAO = range(17, 22)
 KOREA_AND_JAPAN = range(22, 25)
-NEW = range(36, 46)
+NEW = range(46, 55)
 
 # the last entry (image or set of images of the same work) that will be included in the quiz. default: 16
 IMAGE_RANGE = NEW
@@ -103,6 +103,16 @@ answers = {
     'ha43.png': Id('Pham Thanh Tam', 'On the Road to Khe Sanh', 'Vietnam', '1967', ''),
     'ha44.png': Id('Le Minh', 'To protect the crops, to feed the troops', 'Vietnam', '1968', ''),
     'ha45.png': Id('Mai Van Hien', 'Uncle Ho and the Courier', 'Vietnam', '1990-1991', ''),
+    
+    'ha46.png': Id('Tsang Tsou-choi (King of Kowloon)', 'Calligraphy on street furniture, Argyle Street at Sai Yee Street, Mong Kok', 'Hong Kong', '1990-2007', ''),
+    'ha47.png': Id('Lui Shou-kwan', 'Lotus', 'China', '1968', ''),
+    'ha48.png': Id('Oscar Ho', 'Anecdote about Chinese Dress', 'Hong Kong', '1997', ''),
+    'ha49.png': Id('Frog King (Kwok Mang-ho)', 'Wearing Life Body Installation', 'Hong Kong', '2014', ''),
+    'ha50.png': Id('S. Sudjojono', 'Straight Path', 'Indonesia', '1941', ''),
+    'ha51.png': Id('FX Harsono', 'Top Most', 'Indonesia', '1975, remade in 2006', ''),
+    'ha52.png': Id('Tran Van Can', 'Little Sister Thuy', 'Vietnam', '1943', ''),
+    'ha53.png': Id('Mai Van Hien', 'Five-dong note', 'Vietnam', '1945', ''),
+    'ha54.png': Id('Mai Van Hien', 'Uncle Ho and the Courier', 'Vietnam', '1990-1991', ''),
 }
 
 # "images" is expected to live in the same folder as this script.
